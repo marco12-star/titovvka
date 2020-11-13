@@ -558,6 +558,14 @@
 	.address__way {
 		margin-left: 28px;
 	}
+	.contact__info div.flex {
+		margin-right: 0;
+	    margin-bottom: 35px;
+	    width: 50%;
+	}
+	.contact__info {
+	    flex-wrap: wrap;
+	}
 }
 @media (max-width: 1375px){
 	.address__way:first-child{
@@ -580,7 +588,10 @@
 	.contact__info > a.message,
 	.contact__info > a.whatsapp {
 		position: unset;
-	}
+		margin-left: 25px;
+	    width: 50px;
+	    height: 50px;
+}
 	.address__content .slider .slick-dots{
 		left: -500px;
 	}
@@ -840,6 +851,9 @@ md
 	.services__item {
 		width: 100%;
 		margin: 35px 0;
+	}
+	.contact__info > a.message, .contact__info > a.whatsapp {
+	    margin-top: 25px;
 	}
 }
 @media (max-width: 425px){
