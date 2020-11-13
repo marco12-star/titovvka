@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="CSS/reset.css">
+	<link rel="stylesheet" href="CSS/style.css">
+	<link rel="stylesheet" href="CSS/media.css">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+	<title>Дальняя Титовка</title>
+</head>
+<body>
+	<header class="header">
+		<div class="header__content flex">
+			<div class="header__contact flex">
+				<a href="#"><img src="IMG/SVG/wp.svg" alt="Whatsapp"></a>
+				<a href="#"><img src="IMG/SVG/msg.svg" alt="Message"></a>
+			</div>
+			<nav class="nav">
+				<ul class="flex" id="menu">
+					<li><a href="#place">Размещение</a></li>
+					<li><a href="#services">Услуги</a></li>
+					<li><a href="#"><img src="IMG/SVG/logo.svg" alt="Дальняя Титовка"></a></li>
+					<li><a href="#address">Как добраться</a></li>
+					<li><a href="#contact">Контакты</a></li>
+				</ul>
+			</nav>
+			<div class="langs">
+				<a class="active" href="#">Ru</a>
+				<a href="#">En</a>
+			</div>
+		</div>
+		<div class="mobile__menu flex">
+			<div class="langs">
+				<a class="active" href="#">Ru</a>
+				<a href="#">En</a>
+			</div>
+			<a href="#"><img src="IMG/SVG/logo.svg" alt="Дальняя Титовка"></a>
+			<span style="font-size:30px;cursor:pointer;padding: 15px;" onclick="openNav()">&#9776;</span>
+			<div id="mySidenav" class="sidenav">
+				<div class="head flex">
+					<div class="langs flex">
+						<a class="active" href="#">Ru</a>
+						<a href="#">En</a>
+					</div>
+					<a class="logo" href="#"><img src="IMG/SVG/logo.svg" alt="Дальняя Титовка"></a>
+				  	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+				</div>
+				<h5>Меню</h5>
+			  <a href="#place">Размещение</a>
+			  <a href="#services">Услуги</a>
+			  <a href="#address">Как добраться</a>
+			  <a href="#contact">Контакты</a>
+			  <h5>Мессенджеры</h5>
+				<div class="header__contact flex">
+					<a href="#"><img src="IMG/SVG/wp.svg" alt="Whatsapp"></a>
+					<a href="#"><img src="IMG/SVG/msg.svg" alt="Message"></a>
+				</div>
+				<img src="IMG/SVG/komp.svg" alt="Компас">
+			</div>
+		</div>
+
+	</header>
+
+	<section class="hero">
+			<div class="fullscreen-bg">
+				<div class="overlay">
+					<div>
+						<h1>Турбаза <span>на</span> краю <span>света</span></h1>
+						<img src="IMG/SVG/mainfirst.svg" alt="Титовка">
+					</div>
+				</div>
+			    <video loop muted autoplay poster="VIDEO/plane.jpg" class="fullscreen-bg__video">
+			        <source src="VIDEO/plane.mp4" type="VIDEO/mp4">
+			        <source src="VIDEO/plane.webm" type="VIDEO/webm">
+			    </video>
+			</div>
+			<div class="hero__link">
+				<a target="_blank" href="https://youtu.be/XqZsoesa55w" class="flex">
+		    		<img src="IMG/SVG/play.svg" alt="Проиграть">
+		    		<span>смотреть видео</span>
+		    	</a>
+			</div>
+	    	<div class="container calc_pos">
+	    		<div class="calc flex" id='app'>
+				  <div class="one fc">
+				  	<h3>Оставить заявку</h3>
+				  </div>
+				  <div class="five mobile">
+				    <div>
+				    	<span>Цена:</span>
+				      	<p>{{price}}</p>
+				    </div>
+				    <button class='send_btn' @click='order'><span>Заказать</span></button>
+				  </div>
+				  <div class="calc__inputs">
+				  	<div class="calc__input flex">
+				  		<div class="two">
+						    <span>дата вьезда</span>
+						    <input type='date' v-model='start'>
+						  </div>
+						  <div class="three">
+						    <span>дата выезда</span>
+						    <input type='date' v-model='stop'>
+						  </div>
+						  <div class="for--">
+						    <span>количество взрослых</span>
+						    <button class='pb plus' @click='incAdults'>
+						      +
+						    </button>
+						    <input type='number' min=1 max=10 v-model='adults' readonly="readonly">
+						    <button class='pb min' @click='decAdults'>
+						      -
+						    </button>
+						  </div>
+				  	</div>
+					  <div class="calc__input flex">
+						  <div class="ttwo">
+						    <span>дети от 7 до 12 лет</span>
+						    <button class='pb plus' @click='incKids'>
+						      +
+						    </button>
+						    <input type='number' min=0 max=12 v-model='kids' readonly="readonly">
+						    <button class='pb min' @click='decKids'>
+						      -
+						    </button>
+						  </div>
+						  <div class="tthree">
+						    <span>электронная почта</span>
+						    <input type='email'>
+						  </div>
+						  <div class="tfour">
+						    <span>имя</span>
+						    <input type='text'>
+						  </div>
+					  </div>
+				  </div>
+				  <div class="five desk">
+				    <div>
+				    	<span>Цена:</span>
+				      	<p>{{price}}</p>
+				    </div>
+				    <button class='send_btn' @click='order'><span>Заказать</span></button>
+				  </div>
+				  <div class="tfive">
+				  	<div class="container done_pos" :style='greet'>
+					    <div class='app_done flex'>
+					      <img src="IMG/SVG/kosat.svg" alt="Касатка">
+						  <p>Заявка успешно принята! Вам на почту отправлено письмо с подробной информацией про трансфер и  дополнительные услуги. Иногда мы находимся там, где нет связи, но как только она появится, мы с вами свяжемся. Это может занять от 1 до 3 дней. Спасибо за понимание!</p>
+						  <button @click='close'><span>Заполнить повторно</span></button>
+					    </div>
+					  </div>
+				  </div>
+				</div>
+	    	</div>
+	</section>
+
+	<article class="aboutus">
+		<div class="container">
+			<div class="about__content flex">
+				<h2>
+					O нас 
+				</h2>
+				<p>Наша база расположена на маленьком полуострове в Баренцевом море. Уникальное географическое расположение создает прекрасные условия для дайвинга и рыбалки, как речной семужьей, так и морской.</p>
+				<p>это место для того, кто по – настоящему хочет оказаться на «краю земли», получить незабываемые впечатления, активно отдохнуть, порыбачить на реке Титовке или в Баренцевом море, увидеть много интересного и необычного.</p>
+			</div>
+		</div>
+	</article>
+
+	<section class="place">
+		<div class="container place__content">
+			<img src="IMG/place.png" alt="Размещение">
+			<div class="place__video rellax" data-rellax-speed="4">
+				<video loop muted autoplay>
+					<source src="VIDEO/plane.mp4" type="video/mp4">
+					<source src="VIDEO/plane.webm" type="video/webm">
+				</video>
+			</div>
+			<div class="place__info">
+				<h2 id="place">Размещение</h2>
+				<div class="flex"><img src="IMG/SVG/human.svg" alt="Размер группы"> <h3>Размер группы</h3></div>
+				<p>3 и более человек</p>
+				<div class="flex"><img src="IMG/SVG/time.svg" alt="Продолжительность тура"> <h3>Продолжительность тура</h3></div>
+				<p>от 2 дней</p>
+				<div class="flex"><img src="IMG/SVG/house.svg" alt="Вместимость домика"> <h3>Вместимость домика</h3></div>
+				<p>2-4 человека</p>
+				<button>Подробнее<i class="arrow right"></i></button>
+			</div>
+			<div class="detoks"><img src="IMG/SVG/digital-detox.svg" alt="цифровой детокс"></div>			
+		</div>
+	</section>
+
+	<article class="about_titovka">
+		<div class="container">
+			<img class="about__map" src="IMG/about_map.png" alt="Карта России">
+			<div class="titovka__head flex">
+				<h2>Дальняя Титовка это</h2>
+				<div class="titovka__address desk flex">
+					<img src="IMG/SVG/address.svg" alt="Адрес">
+					<p>69.719042, 33.091586</p>
+				</div>
+			</div>
+			<div class="titovka__items flex">
+				<div class="titovka__item">
+					<img src="IMG/SVG/kasat.svg" alt="Касатики">
+					<div class="titovka__text">
+						<h3>Касатики</h3>
+						<p>Возможность увидеть чудесных северных касаток</p>
+					</div>
+				</div>
+				<div class="titovka__item">
+					<img src="IMG/SVG/shine.svg" alt="Сияние">
+					<div class="titovka__text">
+						<h3>Северное сияние</h3>
+						<p>Самое настоящее и удивительно яркое северное сияние</p>
+					</div>
+				</div>
+				<div class="titovka__item">
+					<img src="IMG/SVG/sun.svg" alt="Полярный день">
+					<div class="titovka__text">
+						<h3>Полярный день</h3>
+						<p>Бесконечное солнце летом в рамках полярного дня</p>
+					</div>
+				</div>
+				<div class="titovka__item">
+					<img src="IMG/SVG/leaf.svg" alt="Природа">
+					<div class="titovka__text">
+						<h3>Природа</h3>
+						<p style="width: 120%;">Невероятная северная природа в своем первозданном виде</p>
+					</div>
+				</div>
+			</div>
+			<div class="titovka__address mobile flex">
+				<img src="IMG/SVG/address.svg" alt="Адрес">
+				<p>69.719042, 33.091586</p>
+			</div>
+		</div>
+	</article>
+
+	<section class="services" id="services">
+		<div class="container">
+			<h2>Услуги</h2>
+			<div class="services__items flex">
+				<div class="services__item big">
+					<a href="https://www.google.com" target="_blank">
+					  <video preload onmouseover="this.play()" onmouseout="this.pause()" >
+					    <source src="VIDEO/plane.mp4" type="video/mp4" >
+					    Not Supporting
+					  </video></a>
+					  <h4>Дайвинг</h4>
+				</div>
+				<div class="services__item">
+					<a href="https://www.google.com" target="_blank">
+					  <video preload onmouseover="this.play()" onmouseout="this.pause()" >
+					    <source src="VIDEO/plane.mp4" type="video/mp4" >
+					    Not Supporting
+					  </video></a>
+					  <h4>Русская баня на берегу баренцева моря</h4>
+				</div>
+				<div class="services__item">
+					<a href="https://www.google.com" target="_blank">
+				  <video preload onmouseover="this.play()" onmouseout="this.pause()" >
+				    <source src="VIDEO/plane.mp4" type="video/mp4" >
+				    Not Supporting
+				  </video></a>
+					  <h4>Аренда лодки или корабля</h4>
+				</div>
+				<img src="IMG/SVG/fire.svg" alt="Огонь">
+			</div>
+			<div class="services__items rowtwo flex">
+				<div class="services__item">
+					<a href="https://www.google.com" target="_blank">
+					  <video preload onmouseover="this.play()" onmouseout="this.pause()" >
+					    <source src="VIDEO/plane.mp4" type="video/mp4" >
+					    Not Supporting
+					  </video></a>
+				<h4>Морская и речная семужья рыбалка</h4>
+				</div>
+				<div class="services__item">
+					<a href="https://www.google.com" target="_blank">
+					  <video preload onmouseover="this.play()" onmouseout="this.pause()" >
+					    <source src="VIDEO/plane.mp4" type="video/mp4" >
+					    Not Supporting
+					  </video></a>
+				<h4>Эко тур</h4>
+				</div>
+				<div class="services__item big">
+					<a href="https://www.google.com" target="_blank">
+				  <video preload onmouseover="this.play()" onmouseout="this.pause()" >
+				    <source src="VIDEO/plane.mp4" type="video/mp4" >
+				    Not Supporting
+				  </video></a>
+				<h4>Охота за северным сиянием</h4>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="panel made mobile">
+			<div class="made__content">
+				<div class="container">
+					<img src="IMG/SVG/made-in-arctic.svg" alt="Сдеално в арктике">
+				</div>
+			</div>
+		</section> 
+
+	<div id="pinMaster">
+	  <div id="pinContainer">
+	    <section class="panel made">
+			<div class="made__content">
+				<div class="container">
+					<img src="IMG/SVG/made-in-arctic.svg" alt="Сдеално в арктике">
+				</div>
+			</div>
+		</section> 
+	    <section class="panel services">
+			<div class="container">	
+				<div class="services__items rowtwo flex">
+					<div class="services__item">
+						<a href="https://www.google.com" target="_blank">
+						  <video height="340px" preload onmouseover="this.play()" onmouseout="this.pause()" >
+						    <source src="VIDEO/plane.mp4" type="video/mp4" >
+						    Not Supporting
+						  </video></a>
+					<h4>Морская и речная семужья рыбалка</h4>
+					</div>
+					<div class="services__item">
+						<a href="https://www.google.com" target="_blank">
+						  <video height="340px" preload onmouseover="this.play()" onmouseout="this.pause()" >
+						    <source src="VIDEO/plane.mp4" type="video/mp4" >
+						    Not Supporting
+						  </video></a>
+					<h4>Эко тур</h4>
+					</div>
+					<div class="services__item big">
+						<a href="https://www.google.com" target="_blank">
+					  <video height="340px" preload onmouseover="this.play()" onmouseout="this.pause()" >
+					    <source src="VIDEO/plane.mp4" type="video/mp4" >
+					    Not Supporting
+					  </video></a>
+					<h4>Охота за северным сиянием</h4>
+					</div>
+				</div>
+			</div>
+		</section>
+	  </div>
+	</div>
+
+	<section class="address" id="address">
+		<div class="container">
+			<h2>Как добраться</h2>
+			<div class="address__ways flex">
+				<div class="address__way desk">
+					<p>Трансфер  от аэропорта г. Мурманска  или  Ж/Д вокзала</p><h4>4000 ₽ с человека</h4>
+				</div>
+				<div class="address__way mobile">
+					<h4>1 вариант</h4>
+				</div>
+				<div class="address__way desk">
+					<p>Трансфер  от кафе «Титовка»</p>
+					<h4>3000 ₽ с человека</h4>
+				</div>
+				<div class="address__way mobile">
+					<h4>2 вариант</h4>
+				</div>
+				<div class="address__way desk">
+					<p>Трансфер  от устья реки Титовка</p>
+					<h4>1000 ₽ с человека</h4>
+				</div>
+				<div class="address__way mobile">
+					<h4>3 вариант</h4>
+				</div>
+			</div>
+			<div class="address__content flex">
+				<div class="address__map">
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5649.776514248987!2d31.19958515150625!3d69.26708702484198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x44349b9258590b9d%3A0xcbbb603a5125c11f!2sTitovka%2C%20Murmansk%20Oblast%2C%20Russia%2C%20184413!5e0!3m2!1sen!2str!4v1604486090863!5m2!1sen!2str" width="750" height="460" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+				</div>
+				<div class="slider">
+					<div class="slider__item filter">
+						<h3>Первый вариант</h3>
+						<p>Мы втречаем вас на месте прибытия в аэропорту или на ж/д вокзале  г. Мурманска и наши опытные водители на комофртабельном транспорте доставляют вас прямо до места отдыха. это наиболее популярный и удобный способ добраться до нас с комфортом
+						и безопассностью. Не забудьте взять с собой в дорогу паспорта, они понадобятся при проезде КПП.</p>
+					</div>
+					<div class="slider__item">
+						<h3>Первый вариант</h3>
+						<p>Мы втречаем вас на месте прибытия в аэропорту или на ж/д вокзале  г. Мурманска и наши опытные водители на комофртабельном транспорте доставляют вас прямо до места отдыха. это наиболее популярный и удобный способ добраться до нас с комфортом
+						и безопассностью. Не забудьте взять с собой в дорогу паспорта, они понадобятся при проезде КПП.</p>
+					</div>
+					<div class="slider__item filter">
+						<h3>Первый вариант</h3>
+						<p>Мы втречаем вас на месте прибытия в аэропорту или на ж/д вокзале  г. Мурманска и наши опытные водители на комофртабельном транспорте доставляют вас прямо до места отдыха. это наиболее популярный и удобный способ добраться до нас с комфортом
+						и безопассностью. Не забудьте взять с собой в дорогу паспорта, они понадобятся при проезде КПП.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="contact" id="contact">
+		<div class="container">
+			<div class="contact__text flex">
+				<h2>свяжитесь с нами</h2>
+			<p>Иногда мы можем быть в местах, где нет связи, поэтому возможны небольшие задержки с ответами, но, как только она появится, мы с радостью вас обо всем проинформируем. Спасибо за понимание!</p>
+			</div>
+			<div class="contact__info flex">
+				<div class="flex">
+					<img src="IMG/SVG/phone.svg" alt="Номер телефона">
+					<a href="tel:8 902 130-23-70">8 902 130-23-70</a>
+				</div>
+				<div class="flex" >
+					<img src="IMG/SVG/mail.svg" alt="Номер телефона">
+					<a href="mailto:tour.harmony@mail.ru">tour.harmony@mail.ru</a>
+				</div>
+				<a class="message rellax" data-rellax-speed="1" href="#"><img  src="IMG/SVG/con_msg.svg" alt="Сообщение"></a>
+				<a  class="whatsapp rellax" data-rellax-speed="2" href="#"><img  src="IMG/SVG/con_wp.svg" alt="Ватсапп"></a>
+			</div>
+		</div> 
+	</section>
+
+	<section class="insta">
+		<div class="container">
+			<div class="insta__head flex">
+				<h2>Инстаграм</h2>
+				<div class="insta__acc">
+					<a class="account" href="https://instagram.com/camp_harmony_?igshid=6vujrx1sod2t">@camp_harmony_</a>
+					<a class="subscribe" href="https://instagram.com/camp_harmony_?igshid=6vujrx1sod2t">Подписаться</a>
+				</div>
+			</div>
+			<div class="insta__ flex">
+				<div class="insta__items">
+					<div class="insta__item flex">
+						<img class="insta__little" src="IMG/insta_1.png" alt="Инстаграм">
+						<img class="insta__little" src="IMG/insta_2.png" alt="Инстаграм">
+						<img class="insta__little" src="IMG/insta_3.png" alt="Инстаграм">
+					</div>
+					<div class="insta__item flex">
+						<img class="insta__big" src="IMG/insta_4.png" alt="Инстаграм">
+						<div>
+							<img class="insta__little" src="IMG/insta_5.png" alt="Инстаграм">
+							<img class="insta__little" src="IMG/insta_6.png" alt="Инстаграм">
+						</div>
+					</div>
+				</div>
+				<div class="insta__items">
+					<div class="insta__item flex">
+						<img class="insta__big" src="IMG/insta_7.png" alt="Инстаграм">
+						<div>
+							<img class="insta__little" src="IMG/insta_8.png" alt="Инстаграм">
+							<img class="insta__little" src="IMG/insta_9.png" alt="Инстаграм">
+						</div>
+					</div>
+					<div class="insta__item flex">
+						<img class="insta__little" src="IMG/insta_10.png" alt="Инстаграм">
+						<img class="insta__little" src="IMG/insta_11.png" alt="Инстаграм">
+						<img class="insta__little" src="IMG/insta_12.png" alt="Инстаграм">
+					</div>
+				</div>
+			</div>
+			<div class="insta__about">
+				<p>Мы также есть <a href="#">фейсбуке f</a> будем рады видеть вас в числе наших подписчиков!</p>
+				<img src="IMG/SVG/welcome.svg" alt="Добро пожаловать">
+			</div>
+		</div>
+	</section>
+
+	
+
+	<footer class="footer flex">
+		<p>© База отдыха «Дальняя Титовка», 2020</p>
+		<p>Цифровое агентство «Делай»</p>
+	</footer>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+		/*FOR MENU*/
+
+		$(document).ready(function(){
+		    $("#menu").on("click","a", function (event) {
+		        event.preventDefault();
+		        var id  = $(this).attr('href'),
+
+		            top = $(id).offset().top;
+		 $('body,html').animate({scrollTop: top}, 1500);
+		 });
+
+		});
+
+
+		/*FOR MENU*/
+	</script>
+<script src="JS/slick.min.js"></script>	
+	<script>
+		$(document).ready(function(){
+		  $('.address__slider').slick({
+		    
+		  });
+		});
+	</script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+<script src="JS/script.js"></script>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.12.1/rellax.min.js"></script>
+	
+	<script>
+		let rellax = new Rellax('.rellax');
+	</script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
+	<script>
+		TweenLite.defaultEase = Linear.easeNone;
+		var controller = new ScrollMagic.Controller();
+		var tl = new TimelineMax();
+		tl.from("section.panel.services", 1, {yPercent: -100});
+
+
+		new ScrollMagic.Scene({
+		  triggerElement: "#pinMaster",
+		  triggerHook: "onLeave",
+		  duration: "150%"
+		})
+		  .setPin("#pinMaster")
+		  .setTween(tl)
+		  .addTo(controller);
+
+	</script>
+	<script>
+		function openNav() {
+		  document.getElementById("mySidenav").style.width = "100%";
+		}
+
+		function closeNav() {
+		  document.getElementById("mySidenav").style.width = "0";
+		}
+	</script>
+	
+</body>
+</html>
