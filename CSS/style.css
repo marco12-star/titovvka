@@ -1131,26 +1131,25 @@ input[type="date"]:before {
 }
 
 .contact__info > a.message {
-	position: absolute;
-	top: 800px;
-    right: 45%;
-	padding: 53px;
+    position: absolute;
+    top: 870px;
+    right: 54%;
+    padding: 53px;
     background: #062232;
     border-radius: 50%;
     z-index: 1;
 }
 
 .contact__info > a.whatsapp {
-	position: absolute;
-    top: 1550px;
-    right: 33%;
+    position: absolute;
+    top: 1675px;
+    right: 43%;
     padding: 70px;
     background: #fff;
     border-radius: 50%;
     z-index: 1;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
-
 /*CONTACT*/
 
 /*INSTAGRAM*/
