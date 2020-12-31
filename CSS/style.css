@@ -1132,8 +1132,8 @@ input[type="date"]:before {
 
 .contact__info > a.message {
     position: absolute;
-    top: 870px;
-    right: 54%;
+    top: 1000px;
+    right: 53%;
     padding: 53px;
     background: #062232;
     border-radius: 50%;
@@ -1142,7 +1142,7 @@ input[type="date"]:before {
 
 .contact__info > a.whatsapp {
     position: absolute;
-    top: 1675px;
+    top: 1873px;
     right: 43%;
     padding: 70px;
     background: #fff;
