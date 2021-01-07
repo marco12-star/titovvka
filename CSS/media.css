@@ -15,6 +15,9 @@
 	}
 } 
 @media (max-width:1400px) {
+		.rellax { 
+		transform: translate3d(0,0,0) !important; 
+	}
 	.overlay h1 {
 		font-size: 9vw;
 	}
@@ -582,9 +585,7 @@
 	}
 }
 @media (max-width: 1200px){
-	.rellax { 
-		transform: translate3d(0,0,0) !important; 
-	}
+
 	.contact__info > a.message,
 	.contact__info > a.whatsapp {
 		position: unset;
