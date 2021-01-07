@@ -18,6 +18,20 @@
 		.rellax { 
 		transform: translate3d(0,0,0) !important; 
 	}
+	.place__video {
+		width: 100%;
+		margin-top: 20px;
+		position: unset;
+	}
+	.place__info {
+		width: 50%;
+		margin: 0 auto;
+	}
+	.detoks img {
+		top: unset;
+		bottom: 580px;
+		right: 90px;
+	}
 	.contact__info > a.message,
 	.contact__info > a.whatsapp {
 		position: unset;
@@ -171,20 +185,8 @@
 	}
 }
 @media (max-width:1200px) {
-	.place__video {
-		width: 100%;
-		margin-top: 20px;
-		position: unset;
-	}
-	.place__info {
-		width: 50%;
-		margin: 0 auto;
-	}
-	.detoks img {
-		top: unset;
-		bottom: 580px;
-		right: 90px;
-	}
+	
+	
 	.titovka__items {
 		flex-wrap: wrap;
 	}
@@ -878,6 +880,11 @@ md
 	.place__info div.flex, .place__info p{
 		/*text-align: center;*/
 	}
+	.more_about h2 {
+    font-size: 35px;
+    font-weight: 800;
+    color: #000;
+}
 }
 @media (max-width: 592px){
 	.titovka__item{
